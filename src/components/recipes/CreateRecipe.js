@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { createRecipeFailure, createRecipeSuccess } from '../shared/AutoDismissAlert/messages'
 import RecipeForm from '../shared/RecipeForm'
 
-const createRecipe = (props) => {
+const CreateRecipe = (props) => {
     console.log('these are the props in createRecipe\n', props)
     const { user, msgAlert } = props
 
@@ -43,7 +43,7 @@ const createRecipe = (props) => {
 
         createRecipe(user, recipe)
             // if we're successful, navigate to the show page for the new recipe
-            .then(res => { navigate(`/view-recipe/${res.data.recipe.id}`)})
+            .then(res => { navigate(`/recipes/${res.data.recipe.id}`)})
             // send a success message to the user
             .then(() => {
                 msgAlert({
@@ -72,4 +72,4 @@ const createRecipe = (props) => {
     )
 }
 
-export default createRecipe
+export default CreateRecipe

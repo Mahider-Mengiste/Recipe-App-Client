@@ -10,31 +10,21 @@ import LoadingScreen from '../shared/LoadingScreen'
 import { getOneRecipe, updateRecipe, removeRecipe} from '../../api/recipes'
 import messages from '../shared/AutoDismissAlert/messages'
 import EditRecipeModal from './EditRecipeModal'
-import NewLeashModal from '../leashes/NewLeashModal'
-import ShowLeash from '../leashes/ShowLeash'
-import NewCommentModal from '../comments/NewCommentModal'
-import ShowComment from '../comments/ShowComment'
-import deleteComment from '../../api/comments'
+import NewCommentModal from '../comments /NewCommentModal'
+import ShowComment from '../comments /ShowComment'
 
 // We need to get the recipe's id from the parameters
 // Then we need to make a request to the api
 // Then we need to display the results in this component
 
-// we'll use a style object to lay out the leash cards
-const cardContainerLayout = {
-    display: 'flex',
-    justifyContent: 'center',
-    flexFlow: 'row wrap'
-}
-
 const ShowRecipe = (props) => {
     const [recipe, setRecipe] = useState(null)
     const [editModalShow, setEditModalShow] = useState(false)
-    const [leashModalShow, setLeashModalShow] = useState(false)
     const [commentModalShow, setCommentModalShow] = useState(false)
     const [updated, setUpdated] = useState(false)
 
     const { id } = useParams()
+    console.log('this is the id for the show recipe',id)
     const navigate = useNavigate()
     // useNavigate returns a function
     // we can call that function to redirect the user wherever we want to
@@ -44,28 +34,29 @@ const ShowRecipe = (props) => {
     console.log('the recipe in showRecipe', recipe)
     // destructuring to get the id value from our route parameters
 
-    useEffect(() => {
-        getOneRecipe(id)
-            .then(res => setRecipe(res.data.recipe))
-            .catch(err => {                   
-                msgAlert({
-                    heading: 'Error getting recipe',
-                    message: messages.getRecipesFailure,
-                    variant: 'danger'
-                })
-                navigate('/')
-                //navigate back to the home page if there's an error fetching
-            })
-    }, [updated])
+    // useEffect(() => {
+    //     getOneRecipe(id)
+    //         .then(res => setRecipe(res.data.recipe))
+    //         .catch(err => {                   
+    //             msgAlert({
+    //                 heading: 'Error getting recipe',
+    //                 message: messages.getRecipesFailure,
+    //                 variant: 'danger'
+    //             })
+    //             // navigate('/')
+    //             //navigate back to the home page if there's an error fetching
+    //         })
+    // }, [updated])
+    // console.log('this is recipe in the useeffect', recipe)
 
-    //  useEffect( function ()  {
-    // async function getMyRecipe () {
-    //     const myRecipe = await  getOneRecipe(id)
-    //     setRecipe(myRecipe.data.recipe)
-    //     console.log("this is my recipe", myRecipe)
-    // }
-    // getMyRecipe()
-    // }, [])
+     useEffect( function ()  {
+    async function getMyRecipe () {
+        const myRecipe = await  getOneRecipe(id)
+        setRecipe(myRecipe.data.recipe)
+        console.log("this is my recipe please work", myRecipe)
+    }
+    getMyRecipe()
+    }, [])
 
     // here we'll declare a function that runs which will remove the recipe
     // this function's promise chain should send a message, and then go somewhere
@@ -80,7 +71,7 @@ const ShowRecipe = (props) => {
                 })
             })
             // then navigate to index
-            .then(() => {navigate('/view-all-recipes')})
+            .then(() => {navigate('/')})
             // on failure send a failure message
             .catch(err => {                   
                 msgAlert({
@@ -136,7 +127,7 @@ const ShowRecipe = (props) => {
                                 >
                                     Edit comment
                                 </Button>
-                                <Button onClick={() => removeTheDog()}
+                                <Button onClick={() => removeTheRecipe()}
                                     className="m-2"
                                     variant="danger"
                                 >
@@ -149,8 +140,7 @@ const ShowRecipe = (props) => {
                     </Card.Footer>
                 </Card>
             </Container>
-            <Container style={cardContainerLayout}>
-                {leashCards}
+            <Container>
                 {commentCards}
             </Container> 
             

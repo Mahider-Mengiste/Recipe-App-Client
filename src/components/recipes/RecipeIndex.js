@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 
 import LoadingScreen from '../shared/LoadingScreen'
-import { getAllRecipes } from '../../api/rec'
+import { getAllRecipes } from '../../api/recipes'
 import messages from '../shared/AutoDismissAlert/messages'
 
 // RecipessIndex should make a request to the api
@@ -50,7 +50,7 @@ const RecipesIndex = (props) => {
     }
     getMyRecipes()
     }, [])
-
+    console.log("this is my recipes", recipes)
     if (error) {
         return <p>Error!</p>
     }
@@ -64,13 +64,13 @@ const RecipesIndex = (props) => {
 
     const recipeCards = recipes.map(recipe => (
         <Card style={{ width: '30%', margin: 5 }} key={recipe.id}>
-            <Link to={`/view-recipe/${recipe.id}`} style={{ textDecoration: 'none', color: 'black'}}><Card.Header style={{backgroundColor: 'pink', textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}} >{recipe.recipeName}</Card.Header></Link>
+            <Link to={`/recipes/${recipe._id}`} style={{ textDecoration: 'none', color: 'black'}}><Card.Header style={{backgroundColor: 'pink', textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}} >{recipe.recipeName}</Card.Header></Link>
             <Card.Body>
-                <Link to={`/view-recipe/${recipe.id}`}><img src={recipe.image} alt={recipe.recipeName}></img></Link>
+                <Link to={`/recipes/${recipe._id}`}><img src={recipe.image} alt={recipe.recipeName}></img></Link>
             </Card.Body>
             <Card.Footer style={{backgroundColor: 'pink', color: 'brown', fontSize: '25px', fontWeight: 'bold' }}>
                 <div>
-                    <Link to={`/view-recipe/${recipe.id}`}>View recipe{ recipe.recipeName}</Link>
+                    <Link to={`/recipes/${recipe._id}`}>View recipe</Link>
                 </div>
             </Card.Footer>
         </Card >

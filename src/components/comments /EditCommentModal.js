@@ -54,7 +54,7 @@ const EditCommentModal = (props) => {
             <Modal.Header closeButton />
             <Modal.Body>
                 <CommentForm 
-                    recipe={recipe3}
+                    recipe={recipe}
                     comment={comment}
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}

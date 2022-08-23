@@ -13,7 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ShowRecipe from './components/recipes/ShowRecipe'
-import createRecipe from './components/recipes/CreateRecipe';
+import CreateRecipe from './components/recipes/CreateRecipe';
 
 const App = () => {
 
@@ -70,7 +70,7 @@ const App = () => {
                 <ChangePassword msgAlert={msgAlert} user={user} />
               </RequireAuth>}
           />
-		<Route
+				<Route
 					path="/recipes/:id"
 					element={ <ShowRecipe user={ user } msgAlert={ msgAlert } />}
 				/>
@@ -78,7 +78,7 @@ const App = () => {
 					path="/createRecipe"
 					element={
 						<RequireAuth user={ user }>
-							<createRecipe msgAlert={msgAlert} user={user}/>
+							<CreateRecipe msgAlert={msgAlert} user={user}/>
 						</RequireAuth>  
 					}
 				/>
