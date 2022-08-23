@@ -75,7 +75,7 @@ This is the Client side/Front end of the application.
         -be able to bookmark favorite recipe
        
 
-## Views
+## FrontEnd Views
 
 ### User Views
 
