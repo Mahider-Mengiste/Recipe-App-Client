@@ -15,7 +15,8 @@ const cardContainerStyle = {
     display: 'flex',
     justifyContent: 'space-around',
     flexWrap: 'wrap',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    backgroundColor: 'rgb(255, 255, 255)'
 }
 
 // RecipessIndex should make a request to the api
@@ -70,21 +71,44 @@ const RecipesIndex = (props) => {
                  key={recipe.id}
                   style={
                     {
-                        // backgroundColor: 'blue',
-                        width: '18rem',
-                        columnGap: '40px',
-                        borderRadius: '30px'
+                        backgroundColor: 'rgb(255, 255, 244)',
+                        width: '340px',
+                        height: '350',
+                        borderRadius: '10px',
+                        boxShadow: 'box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px',
+                        marginLeft: '10px',
+                        marginRight: '10px',
+                        marginTop: '25px',
+                        marginBottom: '5px',
+                        border: '2px solid 	#D0D0D0'
+                        
 
                         
                     }
                 }
                 >
-                <Link to={`/recipes/${recipe._id}`}>
-                    <Card.Header>
-                        {recipe.recipeCreater}
-                    </Card.Header>
+                <Link to={`/recipes/${recipe._id}`}
+                    style={
+                        {
+                            
+                            textAlign: 'center',
+                            textDecoration: 'none',
+                            fontSize: '19px',
+                            color: 'rgb(56, 55, 55)'
+                        }
+                    }
+                >   
                     <Card.Header>
                         {recipe.recipeName}
+                    </Card.Header>
+                    <Card.Header
+                    style={
+                        {
+                            fontSize: '15px'
+                        }
+                    }
+                    >
+                        Creater Name: {recipe.recipeCreater}
                     </Card.Header>
                 </Link>
                 <Card.Body  
@@ -92,7 +116,6 @@ const RecipesIndex = (props) => {
                     {
                         // backgroundColor: 'red',
                         width: '18rem',
-                        padding: '10px',
                         textAlign: 'center'
 
                     }
@@ -106,7 +129,11 @@ const RecipesIndex = (props) => {
                                     {
                                         // borderBlockStyle: 'dashed',
                                         width: '18rem',
-                                        height: '18rem'
+                                        height: '18rem',
+                                        padding: '0px',
+                                        borderRadius: '4px',
+                                        border: '2px solid #F5F5F5',
+
                             
                                     }
                                 }
@@ -114,8 +141,23 @@ const RecipesIndex = (props) => {
                     </Link>
                 </Card.Body>
                 <Card.Footer>
-                    <div>
-                        <Link to={`/recipes/${recipe._id}`}>View recipe</Link>
+                    <div 
+                    style={
+                        {
+                            textAlign: 'center',
+                        }
+                    }>
+                        <Link to={`/recipes/${recipe._id}`}
+                        style= {
+                            {
+                                textDecoration: 'none',
+                                fontSize: '19px',
+                                color: '#cc0052'
+                            }
+                        }
+                        >
+                            View recipe
+                        </Link>
                     </div>
                 </Card.Footer>
             </Card >
