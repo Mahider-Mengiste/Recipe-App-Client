@@ -40,7 +40,8 @@ const EditRecipeModal = (props) => {
             // if we're successful in the modal, we want the modal to close
             .then(() => handleClose())
             // send a success message to the user
-            .then(() => {navigate('/')})
+            .then(() => triggerRefresh())
+            .then(() => {navigate(`/recipes/${recipe._id}`)})
             .then(() => {
                 msgAlert({
                     heading: 'Oh Yeah!',
@@ -52,7 +53,7 @@ const EditRecipeModal = (props) => {
             // this is that setUpdated function in showRecipe component
             // updated is in ShowRecipe's useEffect's dependency array
             // changes to the updated boolean cause ShowRecipe' s useEffect to run again.
-            .then(() => triggerRefresh())
+            // .then(() => triggerRefresh())
             // if there is an error, tell the user about it
             .catch(() => 
                 msgAlert({

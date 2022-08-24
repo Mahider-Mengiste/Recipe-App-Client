@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import LoadingScreen from '../shared/LoadingScreen'
 import { getAllRecipes } from '../../api/recipes'
 import messages from '../shared/AutoDismissAlert/messages'
-import './Recipes.scss'
+
 
 const cardContainerStyle = {
    
@@ -82,6 +82,7 @@ const RecipesIndex = (props) => {
                         marginBottom: '5px',
                         border: '2px solid 	#D0D0D0'
                         
+                        
 
                         
                     }
@@ -116,7 +117,8 @@ const RecipesIndex = (props) => {
                     {
                         // backgroundColor: 'red',
                         width: '18rem',
-                        textAlign: 'center'
+                        margin: '9px'
+                        
 
                     }
                 }
@@ -133,6 +135,7 @@ const RecipesIndex = (props) => {
                                         padding: '0px',
                                         borderRadius: '4px',
                                         border: '2px solid #F5F5F5',
+                                        
 
                             
                                     }

@@ -99,8 +99,7 @@ const SignIn = (props) => {
                             textAlign:'center',
                             marginTop: '30px',
                             color: 'rgb(56, 55, 55)',
-                            width: '150px',
-                            marginLeft: '350px'
+                            width: '150px'
                         }
                     }
                     >

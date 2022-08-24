@@ -46,7 +46,7 @@ const SignOut = (props) => {
                                 border: '2px solid 	#D0D0D0',
                                 textAlign:'center',
                                 marginTop: '30px',
-                                color: 'rgb(56, 55, 55)',
+                                color: ' #cc0052',
                                 width: '150px',
                                 marginLeft: '250px',
                                 
@@ -63,10 +63,8 @@ const SignOut = (props) => {
                                 border: '2px solid 	#D0D0D0',
                                 textAlign:'center',
                                 marginTop: '30px',
-                                color: 'rgb(56, 55, 55)',
+                                color: ' #cc0052',
                                 width: '150px',
-                                marginLeft: '50px',
-                                
                             }
                         }
                         >

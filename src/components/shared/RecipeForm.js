@@ -72,7 +72,6 @@ const RecipeForm = (props) => {
                         marginTop: '30px',
                         color: 'rgb(56, 55, 55)',
                         width: '150px',
-                        marginLeft: '550px'
                     }
                 }
                 >Submit</Button>

@@ -19,10 +19,7 @@ import ShowComment from '../comments /ShowComment'
 
 // we'll use a style object to lay out the leash cards
 const cardContainerLayout = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit,minmax(20rem, 1fr)',
-    gridGap: '3rem',
-    backgroundColor: 'red'
+   
 }
 
 const ShowRecipe = (props) => {
@@ -96,7 +93,7 @@ const ShowRecipe = (props) => {
         if (recipe.comments.length > 0) {
             commentCards = recipe.comments.map(comment => (
                 <ShowComment 
-                    key={comment._id}
+                    key={comment._id}ƒ
                     comment={comment}
                     recipe={recipe}
                     user={user}
@@ -113,10 +110,7 @@ const ShowRecipe = (props) => {
         console.log(user, recipe)
     return (
         <>
-            <Container 
-            className="fluid"
-            
-            >
+            <Container className="fluid">
                 <Card>
                     <Card.Header>
                         { recipe.recipeCreater}
