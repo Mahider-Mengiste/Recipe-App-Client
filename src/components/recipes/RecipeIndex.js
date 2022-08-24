@@ -8,17 +8,20 @@ import { Link } from 'react-router-dom'
 import LoadingScreen from '../shared/LoadingScreen'
 import { getAllRecipes } from '../../api/recipes'
 import messages from '../shared/AutoDismissAlert/messages'
+import './Recipes.scss'
+
+const cardContainerStyle = {
+   
+    display: 'flex',
+    justifyContent: 'space-around',
+    flexWrap: 'wrap',
+    flexDirection: 'row'
+}
 
 // RecipessIndex should make a request to the api
 // To get all recipes
 // Then display them when it gets them
 
-// style for our card container
-const cardContainerStyle = {
-    display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'center'
-}
 
 const RecipesIndex = (props) => {
     const [recipes, setRecipes] = useState(null)
@@ -63,31 +66,66 @@ const RecipesIndex = (props) => {
     }
 
     const recipeCards = recipes.map(recipe => (
-        <Card style={{ width: '30%', margin: 5 }} key={recipe.id}>
-            <Link to={`/recipes/${recipe._id}`} style={{ textDecoration: 'none', color: 'black'}}>
-                <Card.Header style={{backgroundColor: 'pink', textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>
-                    {recipe.recipeCreater}
-                </Card.Header>
-                <Card.Header style={{backgroundColor: 'pink', textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>
-                    {recipe.recipeName}
-                </Card.Header>
-            </Link>
-            <Card.Body>
-                <Link to={`/recipes/${recipe._id}`}>
-                    <img src={recipe.image} alt={recipe.recipeName}></img>
-                </Link>
-            </Card.Body>
-            <Card.Footer style={{backgroundColor: 'pink', color: 'brown', fontSize: '25px', fontWeight: 'bold' }}>
-                <div>
-                    <Link to={`/recipes/${recipe._id}`}>View recipe</Link>
-                </div>
-            </Card.Footer>
-        </Card >
+                <Card
+                 key={recipe.id}
+                  style={
+                    {
+                        // backgroundColor: 'blue',
+                        width: '18rem',
+                        columnGap: '40px',
+                        borderRadius: '30px'
 
+                        
+                    }
+                }
+                >
+                <Link to={`/recipes/${recipe._id}`}>
+                    <Card.Header>
+                        {recipe.recipeCreater}
+                    </Card.Header>
+                    <Card.Header>
+                        {recipe.recipeName}
+                    </Card.Header>
+                </Link>
+                <Card.Body  
+                style={
+                    {
+                        // backgroundColor: 'red',
+                        width: '18rem',
+                        padding: '10px',
+                        textAlign: 'center'
+
+                    }
+                }
+                >
+                    <Link to={`/recipes/${recipe._id}`}>
+                        <img 
+                        src={recipe.image} 
+                        alt={recipe.recipeName}
+                        style={
+                                    {
+                                        // borderBlockStyle: 'dashed',
+                                        width: '18rem',
+                                        height: '18rem'
+                            
+                                    }
+                                }
+                        ></img>
+                    </Link>
+                </Card.Body>
+                <Card.Footer>
+                    <div>
+                        <Link to={`/recipes/${recipe._id}`}>View recipe</Link>
+                    </div>
+                </Card.Footer>
+            </Card >
+            
     ))
 
     return (
-        <div style={ cardContainerStyle }>
+        <div 
+        style={ cardContainerStyle }
+        >
             { recipeCards }
         </div>
     )

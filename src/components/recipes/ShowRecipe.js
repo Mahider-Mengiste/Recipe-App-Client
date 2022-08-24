@@ -17,6 +17,14 @@ import ShowComment from '../comments /ShowComment'
 // Then we need to make a request to the api
 // Then we need to display the results in this component
 
+// we'll use a style object to lay out the leash cards
+const cardContainerLayout = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit,minmax(20rem, 1fr)',
+    gridGap: '3rem',
+    backgroundColor: 'red'
+}
+
 const ShowRecipe = (props) => {
     const [recipe, setRecipe] = useState(null)
     const [editModalShow, setEditModalShow] = useState(false)
@@ -105,7 +113,10 @@ const ShowRecipe = (props) => {
         console.log(user, recipe)
     return (
         <>
-            <Container className="fluid">
+            <Container 
+            className="fluid"
+            
+            >
                 <Card>
                     <Card.Header>
                         { recipe.recipeCreater}
@@ -147,7 +158,7 @@ const ShowRecipe = (props) => {
                     </Card.Footer>
                 </Card>
             </Container>
-            <Container>
+            <Container style={cardContainerLayout}>
                 {commentCards}
             </Container> 
             

@@ -3,13 +3,14 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 const linkStyle = {
-    color: 'white',
-    textDecoration: 'none'
+    color: '#cc0052',
+    textDecoration: 'none',	
 }
 const authenticatedOptions = (
 	<>
-		<Nav.Item className='m-2'>
-			<Link to='/createRecipe' style={linkStyle}>
+		<Nav.Item 
+			className='m-2'  bg="light" >
+			<Link to='/createRecipe' style={linkStyle} >
 				Create a recipe
 			</Link>
 		</Nav.Item>
@@ -49,7 +50,20 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
+	<Navbar 
+	bg="light" 
+	variant="light" 
+	expand='md'
+	style={
+				{
+					border: '2px solid #A9A9A9',
+					borderRadius: '3px',
+					justifyContent: 'space-evenly',
+					boxShadow: 'box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset'
+
+				}
+			}
+	>
 		<Navbar.Brand className='m-2'>
             <Link to='/' style={linkStyle}>
                 RecipeTap
