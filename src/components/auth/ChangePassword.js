@@ -55,8 +55,27 @@ const ChangePassword = (props) => {
     return (
         <div className='row'>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-                <h3>Change Password</h3>
-                <Form onSubmit={onChangePassword}>
+                <h3
+                    style={
+                    {
+                        // backgroundColor: 'red',
+                        textAlign: 'center',
+                        fontWeight: 'weightOfFont',
+                        marginTop: '0px',
+                        color: 'rgb(56, 55, 55)'
+                    }
+                }
+                >
+                    Change Password
+                </h3>
+                <Form onSubmit={onChangePassword}
+                 style={
+                    {
+                        
+                        color: '#cc0052'
+                    }
+                }
+                >
                     <Form.Group controlId='oldPassword'>
                         <Form.Label>Old password</Form.Label>
                         <Form.Control
@@ -79,7 +98,21 @@ const ChangePassword = (props) => {
                             onChange={e => setNewPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
+                    <Button 
+                    variant='primary' 
+                    type='submit'
+                    style={
+                        {
+                            backgroundColor: 'rgb(255, 255, 255)',
+                            border: '2px solid 	#D0D0D0',
+                            textAlign:'center',
+                            marginTop: '30px',
+                            color: 'rgb(56, 55, 55)',
+                            width: '150px',
+                            marginLeft: '350px'
+                        }
+                    }
+                    >
                         Submit
                     </Button>
                 </Form>
