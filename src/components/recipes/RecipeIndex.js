@@ -64,9 +64,18 @@ const RecipesIndex = (props) => {
 
     const recipeCards = recipes.map(recipe => (
         <Card style={{ width: '30%', margin: 5 }} key={recipe.id}>
-            <Link to={`/recipes/${recipe._id}`} style={{ textDecoration: 'none', color: 'black'}}><Card.Header style={{backgroundColor: 'pink', textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}} >{recipe.recipeName}</Card.Header></Link>
+            <Link to={`/recipes/${recipe._id}`} style={{ textDecoration: 'none', color: 'black'}}>
+                <Card.Header style={{backgroundColor: 'pink', textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>
+                    {recipe.recipeCreater}
+                </Card.Header>
+                <Card.Header style={{backgroundColor: 'pink', textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>
+                    {recipe.recipeName}
+                </Card.Header>
+            </Link>
             <Card.Body>
-                <Link to={`/recipes/${recipe._id}`}><img src={recipe.image} alt={recipe.recipeName}></img></Link>
+                <Link to={`/recipes/${recipe._id}`}>
+                    <img src={recipe.image} alt={recipe.recipeName}></img>
+                </Link>
             </Card.Body>
             <Card.Footer style={{backgroundColor: 'pink', color: 'brown', fontSize: '25px', fontWeight: 'bold' }}>
                 <div>

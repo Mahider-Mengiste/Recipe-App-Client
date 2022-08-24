@@ -11,6 +11,14 @@ const RecipeForm = (props) => {
         <Container className="justify-content-center">
             <h3>{heading}</h3>
             <Form onSubmit={handleSubmit}>
+                <Form.Label htmlFor="recipeCreater">Recipe Creater Name</Form.Label>
+                <Form.Control
+                    placeholder="What is your name"
+                    name="recipeCreater"
+                    id="recipeCreater"
+                    value={ recipe.recipeCreater}
+                    onChange={ handleChange }
+                />
                 <Form.Label htmlFor="recipeName">recipe Name</Form.Label>
                 <Form.Control
                     placeholder="enter your recipe name here"

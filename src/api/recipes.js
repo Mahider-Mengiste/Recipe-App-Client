@@ -41,7 +41,7 @@ export const updateRecipe = (user, updatedRecipe) => {
     // console.log('this is user', user)
     console.log('this is updatedRecipe', updatedRecipe)
 	return axios({
-		url: `${apiUrl}/edit-recipe/${updatedRecipe.id}`,
+		url: `${apiUrl}/edit-recipe/${updatedRecipe._id}`,
 		method: 'PATCH',
 		headers: {
 			Authorization: `Token token=${user.token}`,

@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import RecipeForm from '../shared/RecipeForm'
 import { updateRecipeSuccess, updateRecipeFailure } from '../shared/AutoDismissAlert/messages'
+import { useParams, useNavigate } from 'react-router-dom'
 
 const EditRecipeModal = (props) => {
     const { 
         user, show, handleClose, 
         updateRecipe, msgAlert, triggerRefresh
     } = props
-
+    const navigate = useNavigate()
     const [recipe, setRecipe] = useState(props.recipe)
 
     console.log('recipe in edit modal', recipe)
@@ -39,6 +40,7 @@ const EditRecipeModal = (props) => {
             // if we're successful in the modal, we want the modal to close
             .then(() => handleClose())
             // send a success message to the user
+            .then(() => {navigate('/')})
             .then(() => {
                 msgAlert({
                     heading: 'Oh Yeah!',

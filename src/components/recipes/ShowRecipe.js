@@ -61,7 +61,8 @@ const ShowRecipe = (props) => {
     // here we'll declare a function that runs which will remove the recipe
     // this function's promise chain should send a message, and then go somewhere
     const removeTheRecipe = () => {
-        removeRecipe(user, recipe.id)
+        console.log('user, recipe id', user, recipe.id)
+        removeRecipe(user, recipe._id)
             // on success send a success message
             .then(() => {
                 msgAlert({
@@ -106,7 +107,13 @@ const ShowRecipe = (props) => {
         <>
             <Container className="fluid">
                 <Card>
-                    <Card.Header>{ recipe.recipeName }</Card.Header>
+                    <Card.Header>
+                        { recipe.recipeCreater}
+                    </Card.Header>
+                    <Card.Header>
+                        { recipe.recipeName }
+                    </Card.Header>
+
                     <Card.Body>
                         <img src={recipe.image} alt={recipe.recipeName}></img>
                          <div><small>Ingredient: { recipe.Ingredient }</small></div>
@@ -125,13 +132,13 @@ const ShowRecipe = (props) => {
                                     className="m-2" 
                                     variant="warning"
                                 >
-                                    Edit comment
+                                    Update Recipe
                                 </Button>
                                 <Button onClick={() => removeTheRecipe()}
                                     className="m-2"
                                     variant="danger"
                                 >
-                                    delete comment
+                                    Delete Recipe
                                 </Button>
                             </>
                             :
