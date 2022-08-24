@@ -68,7 +68,7 @@ const CreateRecipe = (props) => {
             recipe={ recipe } 
             handleChange={ handleChange }
             handleSubmit={ handleSubmit }
-            heading="Add a new recipe!"
+            heading="Share Your Recipe to the World!"
         />
     )
 }

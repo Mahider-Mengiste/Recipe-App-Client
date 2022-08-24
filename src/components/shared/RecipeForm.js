@@ -9,8 +9,27 @@ const RecipeForm = (props) => {
 
     return (
         <Container className="justify-content-center">
-            <h3>{heading}</h3>
-            <Form onSubmit={handleSubmit}>
+            <h3
+            style={
+                    {
+                        // backgroundColor: 'red',
+                        textAlign: 'center',
+                        fontWeight: 'weightOfFont',
+                        marginTop: '25px',
+                        color: 'rgb(56, 55, 55)'
+                    }
+                }
+            >
+                {heading}
+            </h3>
+            <Form onSubmit={handleSubmit}
+            style={
+                    {
+                        
+                        color: '#cc0052'
+                    }
+                }
+            >
                 <Form.Label htmlFor="recipeCreater">Recipe Creater Name</Form.Label>
                 <Form.Control
                     placeholder="What is your name"
@@ -43,7 +62,20 @@ const RecipeForm = (props) => {
                     value={ recipe.Ingredient }
                     onChange={ handleChange }
                 />
-                <Button type="submit">Submit</Button>
+                <Button 
+                type="submit"
+                style={
+                    {
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        border: '2px solid 	#D0D0D0',
+                        textAlign:'center',
+                        marginTop: '30px',
+                        color: 'rgb(56, 55, 55)',
+                        width: '150px',
+                        marginLeft: '550px'
+                    }
+                }
+                >Submit</Button>
             </Form>
         </Container>
     )
