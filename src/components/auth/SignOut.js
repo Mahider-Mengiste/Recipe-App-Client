@@ -33,12 +33,43 @@ const SignOut = (props) => {
             <div className='row'>
                 <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                     <h2>Are you sure you want to sign out?</h2>
-                    <small>We hate to see you go...</small><br/>
+                    <small>
+                        We hate to see you go...
+                        </small>
+                    <br/>
                     <ButtonGroup>
-                        <Button variant='danger' onClick={onSignOut}>
+                        <Button 
+                        onClick={onSignOut}
+                        style={
+                            {
+                                backgroundColor: 'rgb(255, 255, 255)',
+                                border: '2px solid 	#D0D0D0',
+                                textAlign:'center',
+                                marginTop: '30px',
+                                color: 'rgb(56, 55, 55)',
+                                width: '150px',
+                                marginLeft: '250px',
+                                
+                            }
+                        }
+                        >
                             Sign Out
                         </Button>
-                        <Button variant='warning' onClick={onCancel}>
+                        <Button 
+                        onClick={onCancel}
+                        style={
+                            {
+                                backgroundColor: 'rgb(255, 255, 255)',
+                                border: '2px solid 	#D0D0D0',
+                                textAlign:'center',
+                                marginTop: '30px',
+                                color: 'rgb(56, 55, 55)',
+                                width: '150px',
+                                marginLeft: '50px',
+                                
+                            }
+                        }
+                        >
                             Cancel
                         </Button>
                     </ButtonGroup>
