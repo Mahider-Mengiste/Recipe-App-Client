@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import LoadingScreen from '../shared/LoadingScreen'
 import { getAllRecipes } from '../../api/recipes'
 import messages from '../shared/AutoDismissAlert/messages'
-
+import ShowJumbotron from '../Jumbotron/ShowJumbotron'
 
 
 const cardContainerStyle = {
@@ -26,10 +26,12 @@ const cardContainerStyle = {
 
 
 const RecipesIndex = (props) => {
-    const [recipes, setRecipes] = useState(null)
+    // const [recipes, setRecipes] = useState(null)
     const [error, setError] = useState(false)
 
-    const { msgAlert } = props
+    const { msgAlert, input, recipes, setRecipes } = props
+    console.log("++++++++++++++=", input,recipes, setRecipes)
+    
 
     console.log('Props in RecipesIndex', props)
 
@@ -82,10 +84,6 @@ const RecipesIndex = (props) => {
                         marginTop: '25px',
                         marginBottom: '5px',
                         border: '2px solid 	#D0D0D0'
-                        
-                        
-
-                        
                     }
                 }
                 >
@@ -167,14 +165,30 @@ const RecipesIndex = (props) => {
             </Card >
             
     ))
-
+        
+        const searchResults = () => {
+        if (input) {
+            const data = recipes.map(recipe => 
+            recipe.recipeName.toLowerCase().includes(input.toLowerCase()))
+                console.log(data)
+                data.map(recipes => (
+                    <h1>data.recipeName</h1>
+                ))
+        }
+    }
+            
+    
+    
+    searchResults()
+        
     return (
         <div 
         style={ cardContainerStyle }
         >
-            { recipeCards }
+            { input ? searchResults : recipeCards }
         </div>
     )
 }
+
 
 export default RecipesIndex
