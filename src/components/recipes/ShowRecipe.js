@@ -61,7 +61,7 @@ const ShowRecipe = (props) => {
         console.log("this is my recipe please work", myRecipe)
     }
     getMyRecipe()
-    }, [])
+    }, [updated])
 
     // here we'll declare a function that runs which will remove the recipe
     // this function's promise chain should send a message, and then go somewhere

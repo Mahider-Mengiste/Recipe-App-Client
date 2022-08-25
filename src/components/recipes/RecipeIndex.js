@@ -10,6 +10,7 @@ import { getAllRecipes } from '../../api/recipes'
 import messages from '../shared/AutoDismissAlert/messages'
 
 
+
 const cardContainerStyle = {
    
     display: 'flex',
@@ -63,13 +64,13 @@ const RecipesIndex = (props) => {
     if (!recipes) {
         return <LoadingScreen />
     } else if (recipes.length === 0) {
-        return <p>No recipes yet. Better add some.</p>
+        return <p>No recipes yet, Please check back in a while</p>
     }
 
     const recipeCards = recipes.map(recipe => (
                 <Card
-                 key={recipe.id}
-                  style={
+                key={recipe.id}
+                style={
                     {
                         backgroundColor: 'rgb(255, 255, 244)',
                         width: '340px',
@@ -116,8 +117,8 @@ const RecipesIndex = (props) => {
                 style={
                     {
                         // backgroundColor: 'red',
-                        width: '18rem',
-                        margin: '9px'
+                        maxWidth: '17rem',
+                        margin: 'auto'
                         
 
                     }
@@ -130,11 +131,11 @@ const RecipesIndex = (props) => {
                         style={
                                     {
                                         // borderBlockStyle: 'dashed',
-                                        width: '18rem',
-                                        height: '18rem',
+                                        maxHeight: '17rem',
+                                        maxWidth: '15rem',
                                         padding: '0px',
                                         borderRadius: '4px',
-                                        border: '2px solid #F5F5F5',
+                                        border: '2px solid #C0C0C0',
                                         
 
                             

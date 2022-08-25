@@ -13,7 +13,8 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ShowRecipe from './components/recipes/ShowRecipe'
-import CreateRecipe from './components/recipes/CreateRecipe';
+import CreateRecipe from './components/recipes/CreateRecipe'
+
 
 const App = () => {
 
