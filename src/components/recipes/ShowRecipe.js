@@ -118,6 +118,9 @@ const ShowRecipe = (props) => {
                     <Card.Header>
                         { recipe.recipeName }
                     </Card.Header>
+                    <Card.Header>
+                        { recipe.recipeType }
+                    </Card.Header>
 
                     <Card.Body>
                         <img src={recipe.image} alt={recipe.recipeName}></img>

@@ -41,3 +41,15 @@
 span {
     color: rgb(255, 61, 61);
 }
+
+.react-icons {
+    display: flex;
+    flex-direction: row;
+    color: rgb(255, 255, 255);
+    margin: auto;
+    padding: 3px;
+    justify-content: space-around;
+}
+.react-icons div {
+margin: 5px;
+}

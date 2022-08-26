@@ -3,12 +3,19 @@ import { FormControl, InputGroup, Button} from 'react-bootstrap';
 import './Styles.css'
 import { getAllRecipes } from '../../api/recipes'
 import { useState } from 'react'
-
+import { FaPizzaSlice } from "react-icons/fa";
+import { FaPepperHot } from "react-icons/fa";
+import { FaFish} from "react-icons/fa";
+import { FaHamburger } from "react-icons/fa";
+import { GiNoodles } from "react-icons/gi";
+// import {NavLink} from 'react-router-dom'
 function ShowJumbotron(props) {
     // const [searchInput, setSearchInput] = useState("")
     // function handleSearch(search){
             const {setSearchInput} = props
+            const {searchRecipes, setSearchRecipes} = props
             console.log("setstate", setSearchInput)
+            console.log("this is setsearchre======", searchRecipes)
 
     // const handleChange = (e) => {
     //     recipe.recipeName.toLowerCase().includes(searchInput.toLowerCase())
@@ -18,8 +25,8 @@ function ShowJumbotron(props) {
   return (
     <div className='my-jumbotron'>
         <div className='jumbotron-text'>
-            <h1>Welcome!</h1>
-            <h2>Food Recipe made <span>EASY</span></h2></div>
+            <h1>Welcome to RecipeTap!</h1>
+            <h2>The Endless<span>Recipe </span></h2></div>
         <div className='button-input'>
             <InputGroup className='mb-3'>
                 <FormControl
@@ -34,6 +41,37 @@ function ShowJumbotron(props) {
                     Button
                 </Button>
             </InputGroup>
+        </div>
+
+        {/* this is where we will have the food icons */}
+        <div className='react-icons'>
+            <button onClick={() => setSearchRecipes("italian")} >
+                <FaPizzaSlice 
+                />
+                    <h4>Italian</h4>
+                
+            </button>
+            <button onClick={() => setSearchRecipes("indian")} >
+                <FaPepperHot 
+                />
+                    <h4>Indian</h4>
+            </button>
+            <button onClick={() => setSearchRecipes("seafood")} >
+                <FaFish 
+                />
+                    <h4>SeaFood</h4>
+
+            </button>
+            <button onClick={() => setSearchRecipes("american")} >
+                <FaHamburger 
+                />
+                <h4>American</h4>
+            </button>
+            <button onClick={() => setSearchRecipes("japanese")} >
+                <GiNoodles 
+                />
+                    <h4>Japanese</h4>
+            </button>
         </div>
     </div>
   )

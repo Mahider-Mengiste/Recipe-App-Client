@@ -6,6 +6,7 @@ import ShowJumbotron from './Jumbotron/ShowJumbotron'
 
 const Home = (props) => {
 	const [searchInput, setSearchInput] = useState(null)
+	 const [searchRecipes, setSearchRecipes] = useState(null);
 	const [recipes, setRecipes] = useState(null)
 	// const { msgAlert, user } = props
 	console.log('props in home', props)
@@ -26,6 +27,8 @@ const Home = (props) => {
 			className='jumbotron'>
 				<ShowJumbotron 
 				setSearchInput = {setSearchInput}
+				setSearchRecipes = {setSearchRecipes}
+				searchRecipes = {searchRecipes}
 				recipes={recipes}
 				/>
 			</div>
@@ -34,6 +37,7 @@ const Home = (props) => {
 			input = {searchInput}
 			recipes={recipes}
 			setRecipes={setRecipes}
+			searchRecipes = {searchRecipes}
 			/>
 		</>
 	)

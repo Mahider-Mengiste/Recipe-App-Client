@@ -46,6 +46,14 @@ const RecipeForm = (props) => {
                     value={ recipe.recipeName}
                     onChange={ handleChange }
                 />
+                <Form.Label htmlFor="recipeName">recipe Type</Form.Label>
+                <Form.Control
+                    placeholder="enter your recipe type"
+                    name="recipeType"
+                    id="recipeType"
+                    value={ recipe.recipType}
+                    onChange={ handleChange }
+                />
                 <Form.Label htmlFor="type">Image</Form.Label>
                 <Form.Control
                     placeholder="Image URL"

@@ -12,6 +12,7 @@ const CreateRecipe = (props) => {
 
     const [recipe, setRecipe] = useState({
         recipeCreater: '',
+        recipeType: '',
         recipeName: '',
         image: '',
         Ingredient: ''
