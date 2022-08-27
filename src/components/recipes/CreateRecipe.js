@@ -11,14 +11,14 @@ const CreateRecipe = (props) => {
     const navigate = useNavigate()
 
     const [recipe, setRecipe] = useState({
-        recipeCreater: '',
-        recipeType: '',
+        recipeCreator: '',
         recipeName: '',
+        recipeType: '',
         image: '',
         Ingredient: ''
     })
 
-    console.log('this is  recipe createRecipe', recipe)
+    console.log('this is  recipe createRecipe -------', recipe)
 
     const handleChange = (e) => {
         setRecipe(prevRecipe => {
@@ -43,7 +43,7 @@ const CreateRecipe = (props) => {
         // e equals the event
         e.preventDefault()
 
-        createRecipe(user, recipe)
+            createRecipe(user, recipe)
             // if we're successful, navigate to the show page for the new recipe
             .then(res => { navigate(`/recipes/${res.data.recipe._id}`)})
             // send a success message to the user

@@ -14,7 +14,7 @@ export const getOneRecipe = (id) => {
 
 // CREATE
 export const createRecipe = (user, newRecipe) => {
-    // console.log('createRecipe in api was hit')
+    console.log('createRecipe in api was hit')
     // in our createrecipe form, we're building an object
     // when we pass that object into the api createRecipe function,
     // it's going to look like the recipes in our database

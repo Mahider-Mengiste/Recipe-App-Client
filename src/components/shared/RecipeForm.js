@@ -30,12 +30,12 @@ const RecipeForm = (props) => {
                     }
                 }
             >
-                <Form.Label htmlFor="recipeCreater">Recipe Creater Name</Form.Label>
+                <Form.Label htmlFor="recipeCreator">Recipe Creater Name</Form.Label>
                 <Form.Control
                     placeholder="What is your name"
-                    name="recipeCreater"
-                    id="recipeCreater"
-                    value={ recipe.recipeCreater}
+                    name="recipeCreator"
+                    id="recipeCreator"
+                    value={ recipe.recipeCreator}
                     onChange={ handleChange }
                 />
                 <Form.Label htmlFor="recipeName">recipe Name</Form.Label>

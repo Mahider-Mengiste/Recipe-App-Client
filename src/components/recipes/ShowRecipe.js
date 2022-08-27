@@ -113,7 +113,7 @@ const ShowRecipe = (props) => {
             <Container className="fluid">
                 <Card>
                     <Card.Header>
-                        { recipe.recipeCreater}
+                        { recipe.recipeCreator}
                     </Card.Header>
                     <Card.Header>
                         { recipe.recipeName }

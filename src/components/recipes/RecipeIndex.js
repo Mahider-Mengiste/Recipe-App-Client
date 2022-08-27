@@ -112,7 +112,7 @@ const RecipesIndex = (props) => {
                         }
                     }
                     >
-                        Creater Name: {recipe.recipeCreater}
+                        Creater Name: {recipe.recipeCreator}
                     </Card.Header>
                 </Link>
                 <Card.Body  
@@ -217,7 +217,7 @@ const RecipesIndex = (props) => {
                         }
                     }
                     >
-                        Creater Name: {filterResult.recipeCreater}
+                        Creater Name: {filterResult.recipeCreator}
                     </Card.Header>
                 </Link>
                 <Card.Body  
@@ -322,7 +322,7 @@ const RecipesIndex = (props) => {
                         }
                     }
                     >
-                        Creater Name: {searchResult.recipeCreater}
+                        Creater Name: {searchResult.recipeCreator}
                     </Card.Header>
                 </Link>
                 <Card.Body  
