@@ -70,7 +70,7 @@ const ShowRecipe = (props) => {
     // here we'll declare a function that runs which will remove the recipe
     // this function's promise chain should send a message, and then go somewhere
     const removeTheRecipe = () => {
-        console.log('user, recipe id', user, recipe.id)
+        console.log('user, recipe id', user, recipe._id)
         removeRecipe(user, recipe._id)
             // on success send a success message
             .then(() => {
@@ -92,36 +92,40 @@ const ShowRecipe = (props) => {
             })
     }
 
-    const likePost = (id)=> {
-            fetch('/update-like', {
-                method: 'put',
-                headers: {
-                    "Content-Type":"application/json",
-                    "Authorization":"Bearer " +localStorage.getItem("jwt")
-                },
-                body:JSON.stringify({
-                    postId:id
-                })
-            }).then(res=>res.json())
-            .then(result=>{
-                console.log("this is the like result",result)
-            })
-    }
-    const dislikePost = (id)=> {
-            fetch('/delete-like', {
-                method: 'put',
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization":"Bearer " +localStorage.getItem("jwt")
-                },
-                body:JSON.stringify({
-                    postId:id
-                })
-            }).then(res=>res.json())
-            .then(result=>{
-                console.log(result)
-            })
-    }
+    // const likePost = (id)=> {
+    //         fetch('/update-like', {
+    //             method: 'put',
+    //             headers: {
+    //                 "Content-Type":"application/json",
+    //                 "Authorization":"Bearer " +localStorage.getItem("jwt")
+    //             },
+    //             body:JSON.stringify({
+    //                 postId:id
+    //             })
+    //         }).then(res=>res.json())
+    //         .then(result=>{
+    //             console.log("this is the like result",result)
+    //         })
+    // }
+    // const dislikePost = (id)=> {
+    //         fetch('/delete-like', {
+    //             method: 'put',
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //                 "Authorization":"Bearer " +localStorage.getItem("jwt")
+    //             },
+    //             body:JSON.stringify({
+    //                 postId:id
+    //             })
+    //         }).then(res=>res.json())
+    //         .then(result=>{
+    //             console.log(result)
+    //         })
+    // }
+    // likePost =  ()=> {
+    //     let i = 0 
+
+    // }
 
     let commentCards 
     if (recipe) {
@@ -210,14 +214,12 @@ const ShowRecipe = (props) => {
                             </small>
                         </div>
                     </Card.Body>
+
                     <Card.Footer>
-                        <Button  onClick={() => {likePost(recipe._id)}}>
+                        <Button  
+                        onClick={() => {likePost(recipe._id)}}>
                         <FcLike />
                         <h5>{recipe.likes.length}likes</h5>
-                        </Button>
-                        <Button  onClick={() => {dislikePost(recipe._id)}}>
-                        <AiOutlineDislike />
-                        <h5>{recipe.likes.length}dislikes</h5>
                         </Button>
                         <Button onClick={() => setCommentModalShow(true)}
                             className="m-2" variant="info"
