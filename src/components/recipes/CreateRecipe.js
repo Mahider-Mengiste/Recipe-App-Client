@@ -15,6 +15,7 @@ const CreateRecipe = (props) => {
         recipeName: '',
         recipeType: '',
         image: '',
+        // likes:[],
         Ingredient: ''
     })
 

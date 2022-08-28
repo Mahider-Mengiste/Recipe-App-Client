@@ -45,29 +45,29 @@ function ShowJumbotron(props) {
 
         {/* this is where we will have the food icons */}
         <div className='react-icons'>
-            <button onClick={(e) => setSearchRecipes("italian")} >
+            <button onClick={() => setSearchRecipes("italian")} >
                 <FaPizzaSlice 
                 />
                     <h4>Italian</h4>
                 
             </button>
-            <button onClick={(e) => setSearchRecipes("Indian")} >
+            <button onClick={() => setSearchRecipes("Indian")} >
                 <FaPepperHot 
                 />
                     <h4>Indian</h4>
             </button>
-            <button onClick={(e) => setSearchRecipes("seaFood")} >
+            <button onClick={() => setSearchRecipes("seaFood")} >
                 <FaFish 
                 />
                     <h4>SeaFood</h4>
 
             </button>
-            <button onClick={(e) => setSearchRecipes("american")} >
+            <button onClick={() => setSearchRecipes("american")} >
                 <FaHamburger 
                 />
                 <h4>American</h4>
             </button>
-            <button onClick={(e) => setSearchRecipes("japanese")} >
+            <button onClick={() => setSearchRecipes("japanese")} >
                 <GiNoodles 
                 />
                     <h4>Japanese</h4>

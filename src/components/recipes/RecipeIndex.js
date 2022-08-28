@@ -171,14 +171,14 @@ const RecipesIndex = (props) => {
     ))
 ///////////////////////////code block for filter by recipe catagory/////////////////////////////////////
      const filterResults = recipes.filter((recipe) => {
-        // recipe.recipeName.toLowerCase().includes(input.toLowerCase()))
-        // .map(recipe => (
-        // <h1> recipe.recipeName </h1>
+         // .map(recipe => (
+             // <h1> recipe.recipeType </h1>
+             // return recipe["recipeType"].includes(searchRecipes)
         return recipe.recipeType.includes(searchRecipes)
         
     })
 
-    const displayRecipes = filterResults.map((filterResult) => {
+    const displayRecipeType = filterResults.map((filterResult) => {
         return <Card
                 key={filterResult.id}
                 style={
@@ -273,7 +273,7 @@ const RecipesIndex = (props) => {
                 </Card.Footer>
             </Card >
         })
-        console.log("////////THIS IS DISPLAYRECIPES///////", displayRecipes)
+        console.log("////////THIS IS filterresu func///////", filterResults)
 
 //////////////////////////////code block for filter by search-input/////////////////////////////////////
     const searchResults = recipes.filter((recipe) => {
@@ -380,15 +380,14 @@ const RecipesIndex = (props) => {
         })
         console.log("this is search results", searchResults)
 
-         
+
 
     return (
-        <div 
-        style={ cardContainerStyle }
-        >
-            { input ? displayResults  : recipeCards }
-            {searchRecipes ? displayRecipes: recipeCards}
+        <div style={ cardContainerStyle }>
+            {/* { input ? displayResults  : recipeCards } */}
+            {searchRecipes ? displayRecipeType  : recipeCards}
         </div>
+        
     )
 }
 

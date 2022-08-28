@@ -12,6 +12,8 @@ import messages from '../shared/AutoDismissAlert/messages'
 import EditRecipeModal from './EditRecipeModal'
 import NewCommentModal from '../comments /NewCommentModal'
 import ShowComment from '../comments /ShowComment'
+import { FcLike } from "react-icons/fc";
+import { AiOutlineDislike } from "react-icons/ai";
 
 // We need to get the recipe's id from the parameters
 // Then we need to make a request to the api
@@ -19,7 +21,9 @@ import ShowComment from '../comments /ShowComment'
 
 // we'll use a style object to lay out the leash cards
 const cardContainerLayout = {
-   
+    display: 'flex',
+    justifyContent: 'center',
+    flexFlow: 'row wrap'
 }
 
 const ShowRecipe = (props) => {
@@ -88,6 +92,37 @@ const ShowRecipe = (props) => {
             })
     }
 
+    const likePost = (id)=> {
+            fetch('/update-like', {
+                method: 'put',
+                headers: {
+                    "Content-Type":"application/json",
+                    "Authorization":"Bearer " +localStorage.getItem("jwt")
+                },
+                body:JSON.stringify({
+                    postId:id
+                })
+            }).then(res=>res.json())
+            .then(result=>{
+                console.log("this is the like result",result)
+            })
+    }
+    const dislikePost = (id)=> {
+            fetch('/delete-like', {
+                method: 'put',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization":"Bearer " +localStorage.getItem("jwt")
+                },
+                body:JSON.stringify({
+                    postId:id
+                })
+            }).then(res=>res.json())
+            .then(result=>{
+                console.log(result)
+            })
+    }
+
     let commentCards 
     if (recipe) {
         if (recipe.comments.length > 0) {
@@ -110,8 +145,26 @@ const ShowRecipe = (props) => {
         console.log(user, recipe)
     return (
         <>
-            <Container className="fluid">
-                <Card>
+            <Container 
+            className="fluid"
+            style={
+                {
+                    
+                    
+
+                }
+            }
+
+            >
+                <Card
+                style={
+                {
+                    
+                    
+
+
+                }
+            }>
                     <Card.Header>
                         { recipe.recipeCreator}
                     </Card.Header>
@@ -122,11 +175,50 @@ const ShowRecipe = (props) => {
                         { recipe.recipeType }
                     </Card.Header>
 
-                    <Card.Body>
-                        <img src={recipe.image} alt={recipe.recipeName}></img>
-                         <div><small>Ingredient: { recipe.Ingredient }</small></div>
+                    <Card.Body
+                    style={{
+                        border:'2px solid red',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-evenly'
+                    }}
+                    >
+                        <img 
+                        src={recipe.image} 
+                        alt={recipe.recipeName}
+                        style ={
+                            
+                                {
+                                    
+
+                                    maxHeight: '23rem',
+                                    maxWidth: '39rem',
+                                }
+                            
+                        }
+                        ></img>
+                        <div style={
+                                {
+                                border:"2px solid pink",
+                                marginLeft: '150px',
+
+                                }
+                            } 
+                        >
+                            <small >
+                                Ingredient: { recipe.Ingredient }
+                            </small>
+                        </div>
                     </Card.Body>
                     <Card.Footer>
+                        <Button  onClick={() => {likePost(recipe._id)}}>
+                        <FcLike />
+                        <h5>{recipe.likes.length}likes</h5>
+                        </Button>
+                        <Button  onClick={() => {dislikePost(recipe._id)}}>
+                        <AiOutlineDislike />
+                        <h5>{recipe.likes.length}dislikes</h5>
+                        </Button>
                         <Button onClick={() => setCommentModalShow(true)}
                             className="m-2" variant="info"
                         >
