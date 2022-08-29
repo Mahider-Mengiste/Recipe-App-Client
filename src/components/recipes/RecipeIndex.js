@@ -184,7 +184,7 @@ const RecipesIndex = (props) => {
     //  })
 
 
-    // console.log("filterRecipeqqqqqqq",filterRecipe)
+    console.log("filterRecipeqqqqqqq",filterRecipe)
     const displayRecipes = filterRecipe?.map((filterResult) => {
         setSearchInput("")
         return <Card
@@ -285,6 +285,9 @@ const RecipesIndex = (props) => {
 
 //////////////////////////////code block for filter by search-input/////////////////////////////////////
     const searchResults = recipes.filter((recipe) => {
+        // recipe.recipeName.toLowerCase().includes(input.toLowerCase()))
+        // .map(recipe => (
+        // <h1> recipe.recipeName </h1>
         return recipe["recipeName"].includes(input)
         
     })
@@ -387,21 +390,14 @@ const RecipesIndex = (props) => {
         })
         console.log("this is search results", searchResults)
 
-        const jsx = () => {
-            if(input){
-                return displayResults
-            }
-            if(filterRecipe){
-                return displayRecipes
-            }
-        }
+         
 
     return (
         <div 
         style={ cardContainerStyle }
         >   
-            {input || filterRecipe ? jsx : recipeCards}
-            
+            { input ? displayResults  : recipeCards }
+            {/* {displayRecipes} */}
         </div>
     )
 }
