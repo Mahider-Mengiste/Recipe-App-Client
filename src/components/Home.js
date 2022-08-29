@@ -46,6 +46,7 @@ const Home = (props) => {
 			setSearchRecipes = {setSearchRecipes}
 			filterRecipe = {filterRecipe}
 			setSearchInput = {setSearchInput}
+			setFilterRecipe = {setFilterRecipe}
 			/>
 		</>
 	)

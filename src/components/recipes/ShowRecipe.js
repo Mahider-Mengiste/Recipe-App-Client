@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, BrowserRouter } from 'react-router-dom'
 // useParams will allow us to see our parameters
 // useNavigate will allow us to navigate to a specific page
 
@@ -12,6 +12,9 @@ import messages from '../shared/AutoDismissAlert/messages'
 import EditRecipeModal from './EditRecipeModal'
 import NewCommentModal from '../comments /NewCommentModal'
 import ShowComment from '../comments /ShowComment'
+import { FcLike } from "react-icons/fc";
+import { AiOutlineDislike} from "react-icons/ai";
+import {FaRegComment} from "react-icons/fa";
 
 // We need to get the recipe's id from the parameters
 // Then we need to make a request to the api
@@ -91,6 +94,15 @@ const ShowRecipe = (props) => {
             })
     }
 
+    const incrementCounter = () => setLike(like + 1);
+    let decrementCounter = () => setDislike(dislike - 1);
+
+    if(counter<=0) {
+    decrementCounter = () => setCounter(1);
+    }
+                        
+
+
     let commentCards 
     if (recipe) {
         if (recipe.comments.length > 0) {
@@ -113,28 +125,156 @@ const ShowRecipe = (props) => {
         console.log(user, recipe)
     return (
         <>
-            <Container className="fluid">
-                <Card>
-                    <Card.Header>
-                        { recipe.recipeCreator}
+            <Container className="fluid"
+            style={
+                {
+                    // border: '2px solid red',
+                    
+                }
+            }
+            >
+                <Card
+                    style={
+                        {
+                            backgroundColor: 'white'
+                            // maxHeight: "50rem"
+                    
+                            // maxHeight: '60rem'
+
+                            
+                        }
+                    }
+                >   
+                <div style={{ color: '#101010',textAlign: 'center', fontFamily: 'AmstelvarAlpha'}}>
+                    <Card.Header
+                        style={
+                            {
+                                textAlign: '#202020',
+                                fontFamily:'Libre Baskerville serif',
+                                fontSize: '30px'
+                            }
+                        }
+                    >
+                        { recipe.recipeName }
                     </Card.Header>
                     <Card.Header>
-                        { recipe.recipeName }
+                        Recipe Creator: { recipe.recipeCreator}
                     </Card.Header>
                     <Card.Header>
                         { recipe.recipeType }
                     </Card.Header>
+                </div>
 
-                    <Card.Body>
-                        <img src={recipe.image} alt={recipe.recipeName}></img>
-                         <div><small>Ingredient: { recipe.Ingredient }</small></div>
-                    </Card.Body>
-                    <Card.Footer>
-                        <Button onClick={() => setCommentModalShow(true)}
-                            className="m-2" variant="info"
+                    <Card.Body
+                    style={
+                            {
+                                display: 'flex',
+                                flexDirection: 'row',
+                                maxHeight: '30rem',
+                                justifyContent: 'center'
+                            }
+                        }
+                    >
+                        <img 
+                            src={recipe.image}
+                            alt={recipe.recipeName}
+                            style={
+                                {
+                                    maxHeight: '20rem',
+                                    borderRadius: '45px',
+                                    border: '1px solid 	#E8E8E8',
+                                    padding: '0px',
+                                    textAlign: 'center'
+                                }
+                            }
                         >
-                            Add a comment!
-                        </Button>
+                        </img>
+                        <br/>
+                        <div
+                        style={
+                                { 
+                                    marginLeft: '50px',
+                                    maxWidth: '500px',
+                                }
+                            }
+                        >
+                            <small
+                            style={
+                                {
+                                    lineHeight: '21pt',
+                                    color: '#606060',
+                                    fontFamily: 'Urbanist sans-serif',
+                                    fontSize: '19px'
+                                }
+                            }
+                            >
+                                INSTRUCTION: { recipe.Instruction }
+                            </small>
+                        </div>
+                    </Card.Body>
+                    <Card.Footer
+                    style={
+                            {
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'start'
+                            }
+                        }
+                    >   
+                        
+                        <div 
+                        style={{
+                            textAlign: 'center',
+                            justifyContent: 'space-between',
+                            marginRight: '16px',
+                        }}
+                        >
+                        <button 
+                        onClick={incrementCounter}
+                        style={{ border: '2px solid white', textAlign: 'center'}}
+                        >
+                        <FcLike
+                        style={{ border: '2px solid white', fontSize: '28px'}}
+                        />
+                        </button>
+                        <h5 style={{color: '#787878', fontSize: '16px', marginTop: '5px'}}> {like} likes</h5>
+                        </div>
+
+                        <div 
+                        style={{
+                            textAlign: 'center',
+                            justifyContent: 'space-between',
+                            marginRight: '16px',
+                        }}
+                        >
+                        <button 
+                        onClick={decrementCounter}
+                        style={{ border: '2px solid white', textAlign: 'center'}}
+                        >
+                        <AiOutlineDislike 
+                        style={{ border: '2px solid white', fontSize: '28px'}}
+                        />
+                        </button>
+                        <h5 style={{color: '#787878', fontSize: '16px', marginTop: '5px'}}> {dislike - 1} dislikes</h5>
+                        </div>
+                        <button
+                        onClick={() => setCommentModalShow(true)}
+                        // className="m-2" variant="info"
+                        style={{
+                            border: '2px solid #F8F8F8',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent:'space-around',
+                            textAlign: 'center',
+                            color: '#696969',
+                            backgroundColor: '#F8F8F8',
+                            borderRadius: '19px',
+                            
+
+                        }}
+                        >   <FaRegComment style={{ border: '5px solid white',fontSize: '34px', marginLeft: '40px', marginTop: '-6px'}} />
+                            add a comment
+                        </button>
                         {
                             recipe.owner && user && recipe.owner._id === user._id 
                             ?

@@ -32,12 +32,13 @@ const SignOut = (props) => {
 		<>
             <div className='row'>
                 <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-                    <h2>Are you sure you want to sign out?</h2>
+                    <h2 style={{color: '#383838', textAlign: 'left'}}>Are you sure you want to sign out?</h2>
                     <small>
                         We hate to see you go...
-                        </small>
+                    </small>
                     <br/>
                     <ButtonGroup>
+                        
                         <Button 
                         onClick={onSignOut}
                         style={
@@ -48,7 +49,8 @@ const SignOut = (props) => {
                                 marginTop: '30px',
                                 color: ' #cc0052',
                                 width: '150px',
-                                marginLeft: '250px',
+                                marginRight: '25px'
+                                
                                 
                             }
                         }

@@ -11,6 +11,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 import ShowJumbotron from '../Jumbotron/ShowJumbotron'
 
 
+
 const cardContainerStyle = {
    
     display: 'flex',
@@ -29,7 +30,7 @@ const RecipesIndex = (props) => {
     const [error, setError] = useState(false)
     const [filtered, setFiltered] = useState({})
 
-    const { msgAlert, input, recipes, setRecipes, searchRecipes, setSearchRecipes, setSearchInput, filterRecipe } = props
+    const { msgAlert, input, recipes, setRecipes, searchRecipes, setSearchRecipes, setSearchInput, filterRecipe, setFilterRecipe } = props
     console.log("++++++++++++++=this is props", input,recipes, setRecipes, searchRecipes)
     
 
@@ -70,8 +71,9 @@ const RecipesIndex = (props) => {
         return <p>No recipes yet, Please check back in a while</p>
     }
 
+    
     const recipeCards = recipes.map(recipe => (
-                <Card
+        <Card
                 key={recipe.id}
                 style={
                     {
@@ -169,20 +171,20 @@ const RecipesIndex = (props) => {
             </Card >
             
     ))
-// ///////////////////////////code block for filter by recipe catagory/////////////////////////////////////
-    // const filterResults = recipes.filter((recipes) => {
-    //     // console.log("ttttttttttt", recipes.recipeType)
-    //     // // console.log("dddddddedd", searchRecipes)
-    //     // const lowerCaseRecipeType = recipes.recipeType?.toLowerCase()
-    //     // const lowerCaseSeachRecipes = searchRecipes?.toLowerCase()
-    //     // const filteredRecipe = lowerCaseRecipeType?.includes(lowerCaseSeachRecipes)
-    //     // return filteredRecipe
+// ///////////////////////////code block for filter by reciPE catagory/////////////////////////////////////
+    // const filterRecipe = recipes.filter((recipes) => {
+    //     console.log("ttttttttttt", recipes.recipeType)
+    //     // console.log("dddddddedd", searchRecipes)
+    //     const lowerCaseRecipeType = recipes.recipeType?.toLowerCase()
+    //     const lowerCaseSeachRecipes = searchRecipes?.toLowerCase()
+    //     const filteredRecipe = lowerCaseRecipeType?.includes(lowerCaseSeachRecipes)
+    //     return filteredRecipe
 
-    //     // console.log("qqqq", filteredRecipe)
+    //     console.log("qqqq", filteredRecipe)
     //  })
 
 
-    console.log("filterRecipeqqqqqqq",filterRecipe)
+    // console.log("filterRecipeqqqqqqq",filterRecipe)
     const displayRecipes = filterRecipe?.map((filterResult) => {
         setSearchInput("")
         return <Card
@@ -283,9 +285,6 @@ const RecipesIndex = (props) => {
 
 //////////////////////////////code block for filter by search-input/////////////////////////////////////
     const searchResults = recipes.filter((recipe) => {
-        // recipe.recipeName.toLowerCase().includes(input.toLowerCase()))
-        // .map(recipe => (
-        // <h1> recipe.recipeName </h1>
         return recipe["recipeName"].includes(input)
         
     })
@@ -375,7 +374,8 @@ const RecipesIndex = (props) => {
                             {
                                 textDecoration: 'none',
                                 fontSize: '19px',
-                                color: '#cc0052'
+                                color: '#cc0052',
+                                fontFamily: 'Libre Baskerville serif'
                             }
                         }
                         >
@@ -387,17 +387,25 @@ const RecipesIndex = (props) => {
         })
         console.log("this is search results", searchResults)
 
-         
+        const jsx = () => {
+            if(input){
+                return displayResults
+            }
+            if(filterRecipe){
+                return displayRecipes
+            }
+        }
 
     return (
         <div 
         style={ cardContainerStyle }
         >   
-            { input ? displayResults  : recipeCards }
-            {/* {displayRecipes} */}
+            {input || filterRecipe ? jsx : recipeCards}
+            
         </div>
     )
 }
+
 
 
 export default RecipesIndex

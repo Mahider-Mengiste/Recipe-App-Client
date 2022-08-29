@@ -22,7 +22,11 @@ function ShowJumbotron(props) {
     //     recipe.recipeName.toLowerCase().includes(searchInput.toLowerCase())
     // }
     const handleFilter =(selectedType) => {
-        props.setFilterRecipe(props.recipes.filter((filterType)=> filterType.recipeType?.includes(selectedType)))
+        console.log(selectedType, props.recipes)
+        const newFilteredRecipes = props.recipes.filter((filterType)=> filterType.recipeType?.includes(selectedType))
+        console.log("hhhhhh", newFilteredRecipes)
+
+        props.setFilterRecipe(newFilteredRecipes)
     }
   return (
     <div className='my-jumbotron'>

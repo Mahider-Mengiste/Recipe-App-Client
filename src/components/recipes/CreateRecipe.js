@@ -15,7 +15,7 @@ const CreateRecipe = (props) => {
         recipeName: '',
         recipeType: '',
         image: '',
-        Ingredient: ''
+        Instruction: ''
     })
 
     console.log('this is  recipe createRecipe -------', recipe)

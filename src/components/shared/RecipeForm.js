@@ -62,12 +62,13 @@ const RecipeForm = (props) => {
                     value={recipe.image}
                     onChange={handleChange}
                 />
-                <Form.Label htmlFor="Ingredient">Ingredient</Form.Label>
+                
+                <Form.Label htmlFor="Instruction">Instruction</Form.Label>
                 <Form.Control
-                    placeholder="enter your Ingredient here"
-                    name="Ingredient"
-                    id="Ingredient"
-                    value={ recipe.Ingredient }
+                    placeholder="enter your Instruction here"
+                    name="Instruction"
+                    id="Instruction"
+                    value={ recipe.Instruction }
                     onChange={ handleChange }
                 />
                 <Button 
