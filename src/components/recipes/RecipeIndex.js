@@ -396,7 +396,8 @@ const RecipesIndex = (props) => {
         <div 
         style={ cardContainerStyle }
         >   
-            { input ? displayResults  : recipeCards }
+            {recipeCards}
+            {/* { input ? displayResults  : recipeCards } */}
             {/* {displayRecipes} */}
         </div>
     )
