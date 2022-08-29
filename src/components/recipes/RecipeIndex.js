@@ -20,16 +20,16 @@ const cardContainerStyle = {
     backgroundColor: 'rgb(255, 255, 255)'
 }
 
-// RecipessIndex should make a request to the api
-// To get all recipes
-// Then display them when it gets them
+
 
 
 const RecipesIndex = (props) => {
+    console.log("fdfdsdfsddddd", props)
     // const [recipes, setRecipes] = useState(null)
     const [error, setError] = useState(false)
+    const [filtered, setFiltered] = useState({})
 
-    const { msgAlert, input, recipes, setRecipes, searchRecipes } = props
+    const { msgAlert, input, recipes, setRecipes, searchRecipes, setSearchRecipes, setSearchInput, filterRecipe } = props
     console.log("++++++++++++++=this is props", input,recipes, setRecipes, searchRecipes)
     
 
@@ -169,16 +169,22 @@ const RecipesIndex = (props) => {
             </Card >
             
     ))
-///////////////////////////code block for filter by recipe catagory/////////////////////////////////////
-     const filterResults = recipes.filter((recipe) => {
-        // recipe.recipeName.toLowerCase().includes(input.toLowerCase()))
-        // .map(recipe => (
-        // <h1> recipe.recipeName </h1>
-        return recipe.recipeType.includes(searchRecipes)
-        
-    })
+// ///////////////////////////code block for filter by recipe catagory/////////////////////////////////////
+    // const filterResults = recipes.filter((recipes) => {
+    //     // console.log("ttttttttttt", recipes.recipeType)
+    //     // // console.log("dddddddedd", searchRecipes)
+    //     // const lowerCaseRecipeType = recipes.recipeType?.toLowerCase()
+    //     // const lowerCaseSeachRecipes = searchRecipes?.toLowerCase()
+    //     // const filteredRecipe = lowerCaseRecipeType?.includes(lowerCaseSeachRecipes)
+    //     // return filteredRecipe
 
-    const displayRecipes = filterResults.map((filterResult) => {
+    //     // console.log("qqqq", filteredRecipe)
+    //  })
+
+
+    console.log("filterRecipeqqqqqqq",filterRecipe)
+    const displayRecipes = filterRecipe?.map((filterResult) => {
+        setSearchInput("")
         return <Card
                 key={filterResult.id}
                 style={
@@ -284,6 +290,7 @@ const RecipesIndex = (props) => {
         
     })
         const displayResults = searchResults.map((searchResult) => {
+            setSearchRecipes("")
         return <Card
                 key={searchResult.id}
                 style={
@@ -385,9 +392,9 @@ const RecipesIndex = (props) => {
     return (
         <div 
         style={ cardContainerStyle }
-        >
+        >   
             { input ? displayResults  : recipeCards }
-            {searchRecipes ? displayRecipes: recipeCards}
+            {/* {displayRecipes} */}
         </div>
     )
 }

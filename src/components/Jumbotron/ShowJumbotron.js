@@ -14,14 +14,16 @@ function ShowJumbotron(props) {
     // function handleSearch(search){
             const {setSearchInput} = props
             const {searchRecipes, setSearchRecipes} = props
+            const [selected, setSelected] = useState("")
             console.log("setstate", setSearchInput)
             console.log("this is setsearchre======", searchRecipes)
 
     // const handleChange = (e) => {
     //     recipe.recipeName.toLowerCase().includes(searchInput.toLowerCase())
     // }
-
-
+    const handleFilter =(selectedType) => {
+        props.setFilterRecipe(props.recipes.filter((filterType)=> filterType.recipeType?.includes(selectedType)))
+    }
   return (
     <div className='my-jumbotron'>
         <div className='jumbotron-text'>
@@ -42,37 +44,36 @@ function ShowJumbotron(props) {
                 </Button>
             </InputGroup>
         </div>
-
-        {/* this is where we will have the food icons */}
-        <div className='react-icons'>
-            <button onClick={(e) => setSearchRecipes("italian")} >
+        {/* this is where we will have the food icons */} 
+       <div className='react-icons'>
+            <button onClick={() => handleFilter("Italian")} >
                 <FaPizzaSlice 
                 />
                     <h4>Italian</h4>
                 
             </button>
-            <button onClick={(e) => setSearchRecipes("Indian")} >
+            <button onClick={() => handleFilter("Indian")} >
                 <FaPepperHot 
                 />
                     <h4>Indian</h4>
             </button>
-            <button onClick={(e) => setSearchRecipes("seaFood")} >
+            <button onClick={() => handleFilter("SeaFood")} >
                 <FaFish 
                 />
                     <h4>SeaFood</h4>
 
             </button>
-            <button onClick={(e) => setSearchRecipes("american")} >
+            <button onClick={() => handleFilter("American")} >
                 <FaHamburger 
                 />
                 <h4>American</h4>
             </button>
-            <button onClick={(e) => setSearchRecipes("japanese")} >
+            <button onClick={() => handleFilter("Japanese")} >
                 <GiNoodles 
                 />
                     <h4>Japanese</h4>
             </button>
-        </div>
+        </div> 
     </div>
   )
 }

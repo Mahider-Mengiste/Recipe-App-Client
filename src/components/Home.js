@@ -5,9 +5,12 @@ import ShowJumbotron from './Jumbotron/ShowJumbotron'
 // import { getAllRecipes } from '../api/recipes'
 
 const Home = (props) => {
+	// search iiput
 	const [searchInput, setSearchInput] = useState(null)
-	 const [searchRecipes, setSearchRecipes] = useState(null);
+		// filter input
+	 const [searchRecipes, setSearchRecipes] = useState("");
 	const [recipes, setRecipes] = useState(null)
+	  const [filterRecipe, setFilterRecipe] = useState([])
 	// const { msgAlert, user } = props
 	console.log('props in home', props)
 
@@ -30,6 +33,8 @@ const Home = (props) => {
 				setSearchRecipes = {setSearchRecipes}
 				searchRecipes = {searchRecipes}
 				recipes={recipes}
+				setFilterRecipe = {setFilterRecipe}
+				
 				/>
 			</div>
 			<RecipeIndex 
@@ -38,6 +43,9 @@ const Home = (props) => {
 			recipes={recipes}
 			setRecipes={setRecipes}
 			searchRecipes = {searchRecipes}
+			setSearchRecipes = {setSearchRecipes}
+			filterRecipe = {filterRecipe}
+			setSearchInput = {setSearchInput}
 			/>
 		</>
 	)
