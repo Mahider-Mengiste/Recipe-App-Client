@@ -24,6 +24,7 @@
 .jumbotron-text {
     /* border: 2px solid rgb(255, 138, 4); */
     margin-top: 150px;
+    font-family: 'Montserrat', sans-serif;
 }
 .button-input {
     width: 50%;
@@ -39,17 +40,24 @@
 }
 
 span {
-    color: rgb(255, 61, 61);
+    color: rgb(255, 100, 100);
+    font-family: 'Varela', sans-serif;
+
+    
 }
 
 .react-icons {
     display: flex;
     flex-direction: row;
-    color: rgb(255, 255, 255);
+    color: #0e0a0a;
     margin: auto;
     padding: 3px;
-    justify-content: space-around;
+    justify-content:space-between;
 }
-.react-icons div {
-margin: 5px;
+.react-icons button {
+margin-left: 20px;
+background-color: #fff9f2;
+color: rgb(63, 63, 63);
+border-radius: 10px;
+border: #000000;
 }

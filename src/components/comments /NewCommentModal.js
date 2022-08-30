@@ -69,7 +69,20 @@ const NewCommentModal = (props) => {
                     id="note"
                     onChange={ handleChange }
                 />
-                <Button type="submit">Submit</Button>
+                <button
+                 type="submit"
+                 className="m-2" 
+                style={
+                        {
+                            backgroundColor: 'rgb(255, 255, 255)',
+                            height:'30px',
+                            width: '100px',
+                            borderRadius: '5px',
+                            color: ' #cc0052',
+                            border: '2px solid 	#D0D0D0',
+                        }
+                    }
+                 >Submit</button>
             </Form>
             </Modal.Body>
         </Modal>

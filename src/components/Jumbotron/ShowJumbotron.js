@@ -32,7 +32,7 @@ function ShowJumbotron(props) {
     <div className='my-jumbotron'>
         <div className='jumbotron-text'>
             <h1>Welcome to RecipeTap!</h1>
-            <h2>The Endless<span>Recipe </span></h2></div>
+            <h2>The Endless <span>Recipe </span></h2></div>
         <div className='button-input'>
             <InputGroup className='mb-3'>
                 <FormControl
@@ -43,7 +43,7 @@ function ShowJumbotron(props) {
                 />
                 
 
-                <Button variant="danger" id="meal-search-button">
+                <Button variant='danger' id="meal-search-button">
                     Button
                 </Button>
             </InputGroup>
