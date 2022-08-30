@@ -397,7 +397,7 @@ const RecipesIndex = (props) => {
         style={ cardContainerStyle }
         >   
             {/* {recipeCards} */}
-            <div style={ {borderBottom :'2px solid black'} } onClick= {setHidden (true)}>{displayRecipes} </div> 
+            {/* <div style={ {borderBottom :'2px solid black'} } onClick= {setHidden (true)}>{displayRecipes} </div>  */}
             { input ? displayResults  : recipeCards }
             {/* {displayRecipes} */}
         </div>

@@ -28,7 +28,9 @@ const ShowComment = (props) => {
     }
     return (
         <>
-            <Card className='m-2'>
+            <Card className='m-2'
+            style={{height:'90px'}}
+            >
                 <Card.Header>{comment.email}</Card.Header>
                 <Card.Body>
                     <p>{comment.note}</p>
@@ -37,13 +39,15 @@ const ShowComment = (props) => {
                     {
                         user && user._id === comment.owner 
                         ?
-                        <>
+                        <div 
+                        style={{height: '50px'}}
+                        >
                             <button onClick={() => setEditModalShow(true)}
                             className="m-2" 
                                         style={
                                         {
                                             backgroundColor: 'rgb(255, 255, 255)',
-                                            height:'50px',
+                                            height:'30px',
                                             borderRadius: '5px',
                                             color: ' #cc0052',
                                             border: '2px solid 	#D0D0D0',
@@ -55,14 +59,14 @@ const ShowComment = (props) => {
                                         style={
                                         {
                                             backgroundColor: 'rgb(255, 255, 255)',
-                                            height:'50px',
+                                            height:'30px',
                                             borderRadius: '5px',
                                             color: ' #cc0052',
                                             border: '2px solid 	#D0D0D0',
                                         }
                                     }
                             >Delete Commment</button>
-                        </>
+                        </div>
                         :
                         null
                     }
