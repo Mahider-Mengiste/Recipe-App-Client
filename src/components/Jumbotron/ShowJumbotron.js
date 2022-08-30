@@ -49,7 +49,7 @@ function ShowJumbotron(props) {
             </InputGroup>
         </div>
         {/* this is where we will have the food icons */} 
-       <div className='react-icons'>
+       {/* <div className='react-icons'>
             <button onClick={() => handleFilter("Italian")} >
                 <FaPizzaSlice 
                 />
@@ -78,7 +78,7 @@ function ShowJumbotron(props) {
                 />
                     <h4>Japanese</h4>
             </button>
-        </div> 
+        </div>  */}
     </div>
   )
 }
