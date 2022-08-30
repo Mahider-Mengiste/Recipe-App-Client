@@ -12,7 +12,7 @@ import { GiNoodles } from "react-icons/gi";
 function ShowJumbotron(props) {
     // const [searchInput, setSearchInput] = useState("")
     // function handleSearch(search){
-            const {setSearchInput} = props
+            const {setSearchInput, hidden, setHidden} = props
             const {searchRecipes, setSearchRecipes} = props
             // const [selected, setSelected] = useState("")
             console.log("setstate", setSearchInput)
@@ -22,9 +22,9 @@ function ShowJumbotron(props) {
     //     recipe.recipeName.toLowerCase().includes(searchInput.toLowerCase())
     // }
     const handleFilter =(selectedType) => {
-        console.log(selectedType, props.recipes)
+        setHidden(!hidden)
+        console.log('HIDDEN STATE',hidden)
         const newFilteredRecipes = props.recipes.filter((filterType)=> filterType.recipeType?.includes(selectedType))
-        console.log("hhhhhh", newFilteredRecipes)
 
         props.setFilterRecipe(newFilteredRecipes)
     }

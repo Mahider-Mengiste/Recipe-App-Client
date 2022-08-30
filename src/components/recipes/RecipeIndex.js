@@ -29,13 +29,13 @@ const RecipesIndex = (props) => {
     // const [recipes, setRecipes] = useState(null)
     const [error, setError] = useState(false)
     const [filtered, setFiltered] = useState({})
-    const [hidden, setHidden] = useState(false)
 
-    const { msgAlert, input, recipes, setRecipes, searchRecipes, setSearchRecipes, setSearchInput, filterRecipe, setFilterRecipe } = props
-    console.log("++++++++++++++=this is props", input,recipes, setRecipes, searchRecipes)
+
+    const { msgAlert, input, recipes, setRecipes, searchRecipes, setSearchRecipes, setSearchInput, filterRecipe, setFilterRecipe, setHidden, hidden } = props
+    console.log("THIS IS INPUT", input)
     
 
-    console.log('Props in RecipesIndex', props)
+    
 
     // useEffect( () => {
     //     console.log(props)
@@ -286,14 +286,11 @@ const RecipesIndex = (props) => {
 
 //////////////////////////////code block for filter by search-input/////////////////////////////////////
     const searchResults = recipes.filter((recipe) => {
-        // recipe.recipeName.toLowerCase().includes(input.toLowerCase()))
-        // .map(recipe => (
-        // <h1> recipe.recipeName </h1>
         return recipe["recipeName"].includes(input)
-        
     })
+    console.log('SEARCH RESULTS', searchResults)
         const displayResults = searchResults.map((searchResult) => {
-            setSearchRecipes("")
+            // setSearchRecipes("")
         return <Card
                 key={searchResult.id}
                 style={
@@ -389,17 +386,18 @@ const RecipesIndex = (props) => {
                 </Card.Footer>
             </Card >
         })
-        console.log("this is search results", searchResults)
+
 
         
     return (
         <div 
         style={ cardContainerStyle }
         >   
-            {/* {recipeCards} */}
-            <div style={ {borderBottom :'2px solid black'} } onClick= {setHidden (true)}>{displayRecipes} </div> 
-            { input ? displayResults  : recipeCards }
-            {/* {displayRecipes} */}
+            { 
+        !hidden && searchResults ? displayResults
+        :!hidden ? recipeCards 
+        : displayRecipes
+        }
         </div>
     )
 }

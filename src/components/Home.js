@@ -11,6 +11,7 @@ const Home = (props) => {
 	 const [searchRecipes, setSearchRecipes] = useState("");
 	const [recipes, setRecipes] = useState(null)
 	  const [filterRecipe, setFilterRecipe] = useState([])
+	  const [hidden, setHidden] = useState(false)
 	// const { msgAlert, user } = props
 	console.log('props in home', props)
 
@@ -34,6 +35,8 @@ const Home = (props) => {
 				searchRecipes = {searchRecipes}
 				recipes={recipes}
 				setFilterRecipe = {setFilterRecipe}
+				hidden={hidden}
+				setHidden ={setHidden}
 				
 				/>
 			</div>
@@ -47,6 +50,8 @@ const Home = (props) => {
 			filterRecipe = {filterRecipe}
 			setSearchInput = {setSearchInput}
 			setFilterRecipe = {setFilterRecipe}
+			hidden={hidden}
+			setHidden ={setHidden}
 			/>
 		</>
 	)
