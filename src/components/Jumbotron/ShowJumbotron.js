@@ -14,7 +14,7 @@ function ShowJumbotron(props) {
     // function handleSearch(search){
             const {setSearchInput} = props
             const {searchRecipes, setSearchRecipes} = props
-            const [selected, setSelected] = useState("")
+            // const [selected, setSelected] = useState("")
             console.log("setstate", setSearchInput)
             console.log("this is setsearchre======", searchRecipes)
 

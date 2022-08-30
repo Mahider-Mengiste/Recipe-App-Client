@@ -38,8 +38,30 @@ const ShowComment = (props) => {
                         user && user._id === comment.owner 
                         ?
                         <>
-                            <Button variant='warning' onClick={() => setEditModalShow(true)}>Edit Comment</Button>
-                            <Button variant='danger' onClick={() => removeComment()}>Delete Commment</Button>
+                            <button onClick={() => setEditModalShow(true)}
+                            className="m-2" 
+                                        style={
+                                        {
+                                            backgroundColor: 'rgb(255, 255, 255)',
+                                            height:'50px',
+                                            borderRadius: '5px',
+                                            color: ' #cc0052',
+                                            border: '2px solid 	#D0D0D0',
+                                        }
+                                    }
+                            >Edit Comment</button>
+                            <button  onClick={() => removeComment()}
+                            className="m-2" 
+                                        style={
+                                        {
+                                            backgroundColor: 'rgb(255, 255, 255)',
+                                            height:'50px',
+                                            borderRadius: '5px',
+                                            color: ' #cc0052',
+                                            border: '2px solid 	#D0D0D0',
+                                        }
+                                    }
+                            >Delete Commment</button>
                         </>
                         :
                         null

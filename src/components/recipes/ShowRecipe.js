@@ -180,7 +180,7 @@ const ShowRecipe = (props) => {
                             alt={recipe.recipeName}
                             style={
                                 {
-                                    maxHeight: '20rem',
+                                    maxHeight: '25rem',
                                     borderRadius: '45px',
                                     border: '1px solid 	#E8E8E8',
                                     padding: '0px',
@@ -275,23 +275,50 @@ const ShowRecipe = (props) => {
                         >   <FaRegComment style={{ border: '5px solid white',fontSize: '34px', marginLeft: '40px', marginTop: '-6px'}} />
                             add a comment
                         </button>
+                        
                         {
                             recipe.owner && user && recipe.owner._id === user._id 
                             ?
-                            <>
-                                <Button onClick={() => setEditModalShow(true)} 
+                            <div style={{backgroundColor: 'white', marginLeft: '600px', borderRadius: '3px'}}>
+                            
+                                <button onClick={() => setEditModalShow(true)} 
                                     className="m-2" 
-                                    variant="warning"
+                                        style={
+                                        {
+                                            backgroundColor: 'rgb(255, 255, 255)',
+                                            height:'50px',
+                                            borderRadius: '5px',
+                                            color: ' #cc0052',
+                                            border: '2px solid 	#D0D0D0',
+                                        }
+                                    }
+                                    
                                 >
                                     Update Recipe
-                                </Button>
-                                <Button onClick={() => removeTheRecipe()}
+                                </button>
+                                <button onClick={() => removeTheRecipe()}
                                     className="m-2"
-                                    variant="danger"
+                                    style={
+                                        {
+                                            backgroundColor: 'rgb(255, 255, 255)',
+                                            height:'50px',
+                                            borderRadius: '5px',
+                                            color: ' #cc0052',
+                                            border: '2px solid 	#D0D0D0',
+                                            
+                                            
+
+
+
+
+
+
+                                        }
+                                    }
                                 >
                                     Delete Recipe
-                                </Button>
-                            </>
+                                </button>
+                            </div>
                             :
                             null
                         }
