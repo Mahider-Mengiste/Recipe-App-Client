@@ -74,6 +74,7 @@ function ShowJumbotron(props) {
             </button>
             <button onClick={() => handleFilter("Japanese")} >
                 <GiNoodles 
+                style={{marignTop: '20px'}}
                 />
                     <h4>Japanese</h4>
             </button>
