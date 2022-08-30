@@ -56,8 +56,19 @@ margin: 5px;
 
 .react-icons button {
 margin-left: 20px;
-background-color: #fff9f2;
+background-color: #fffcf9;
 color: rgb(63, 63, 63);
-border-radius: 10px;
+/* border-radius: 20%/50%; */
 border: #000000;
+ line-height: 24px;
+border-radius: 38px;
+width: 150px;
+height: 40px;
+}
+
+.react-icons button h4 {
+      margin-top: -10px;
+}
+button {
+    margin-top: 20px;
 }
