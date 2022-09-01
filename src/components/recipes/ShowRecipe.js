@@ -181,7 +181,7 @@ const ShowRecipe = (props) => {
                             style={
                                 {
                                     maxHeight: '25rem',
-                                    borderRadius: '45px',
+                                    borderRadius: '100px',
                                     border: '1px solid 	#E8E8E8',
                                     padding: '0px',
                                     textAlign: 'center'
