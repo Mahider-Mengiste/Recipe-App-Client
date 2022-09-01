@@ -30,8 +30,8 @@ const ShowRecipe = (props) => {
     const [editModalShow, setEditModalShow] = useState(false)
     const [commentModalShow, setCommentModalShow] = useState(false)
     const [updated, setUpdated] = useState(false)
-    const [counter, setCounter] = useState(1)
-    const [like, setLike] = useState(1)
+    const [counter, setCounter] = useState(0)
+    const [like, setLike] = useState(0)
     const [dislike, setDislike] = useState(0)
 
     const { id } = useParams()
@@ -181,7 +181,7 @@ const ShowRecipe = (props) => {
                             style={
                                 {
                                     maxHeight: '25rem',
-                                    borderRadius: '45px',
+                                    borderRadius: '100px',
                                     border: '1px solid 	#E8E8E8',
                                     padding: '0px',
                                     textAlign: 'center'

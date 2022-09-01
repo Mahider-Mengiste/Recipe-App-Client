@@ -393,7 +393,7 @@ const RecipesIndex = (props) => {
         <div 
         style={ cardContainerStyle }
         >   
-            { 
+        { 
         !hidden && searchResults ? displayResults
         :!hidden ? recipeCards 
         : displayRecipes
