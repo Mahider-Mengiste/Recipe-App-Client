@@ -12,17 +12,9 @@ import messages from '../shared/AutoDismissAlert/messages'
 import EditRecipeModal from './EditRecipeModal'
 import NewCommentModal from '../comments /NewCommentModal'
 import ShowComment from '../comments /ShowComment'
-import { FcLike } from "react-icons/fc";
-import { AiOutlineDislike} from "react-icons/ai";
 import {FaRegComment} from "react-icons/fa";
 
-// We need to get the recipe's id from the parameters
-// Then we need to make a request to the api
-// Then we need to display the results in this component
-
-// we'll use a style object to lay out the leash cards
 const cardContainerLayout = {
-   
 }
 
 const ShowRecipe = (props) => {
@@ -30,37 +22,16 @@ const ShowRecipe = (props) => {
     const [editModalShow, setEditModalShow] = useState(false)
     const [commentModalShow, setCommentModalShow] = useState(false)
     const [updated, setUpdated] = useState(false)
-    const [counter, setCounter] = useState(0)
-    const [like, setLike] = useState(0)
-    const [dislike, setDislike] = useState(0)
+
 
     const { id } = useParams()
     console.log('this is the id for the show recipe',id)
     const navigate = useNavigate()
-    // useNavigate returns a function
-    // we can call that function to redirect the user wherever we want to
-
     const { user, msgAlert } = props
     console.log('user in props', user)
     console.log('the recipe in showRecipe', recipe)
-    // destructuring to get the id value from our route parameters
 
-    // useEffect(() => {
-    //     getOneRecipe(id)
-    //         .then(res => setRecipe(res.data.recipe))
-    //         .catch(err => {                   
-    //             msgAlert({
-    //                 heading: 'Error getting recipe',
-    //                 message: messages.getRecipesFailure,
-    //                 variant: 'danger'
-    //             })
-    //             // navigate('/')
-    //             //navigate back to the home page if there's an error fetching
-    //         })
-    // }, [updated])
-    // console.log('this is recipe in the useeffect', recipe)
-
-     useEffect( function ()  {
+    useEffect( function ()  {
     async function getMyRecipe () {
         const myRecipe = await  getOneRecipe(id)
         setRecipe(myRecipe.data.recipe)
@@ -69,8 +40,6 @@ const ShowRecipe = (props) => {
     getMyRecipe()
     }, [updated])
 
-    // here we'll declare a function that runs which will remove the recipe
-    // this function's promise chain should send a message, and then go somewhere
     const removeTheRecipe = () => {
         console.log('user, recipe id', user, recipe.id)
         removeRecipe(user, recipe._id)
@@ -93,14 +62,6 @@ const ShowRecipe = (props) => {
                 })
             })
     }
-
-    const incrementCounter = () => setLike(like + 1);
-    let decrementCounter = () => setDislike(dislike - 1);
-
-    if(counter<=0) {
-    decrementCounter = () => setCounter(1);
-    }
-                        
 
 
     let commentCards 
@@ -137,11 +98,6 @@ const ShowRecipe = (props) => {
                     style={
                         {
                             backgroundColor: 'white'
-                            // maxHeight: "50rem"
-                    
-                            // maxHeight: '60rem'
-
-                            
                         }
                     }
                 >   
@@ -221,45 +177,8 @@ const ShowRecipe = (props) => {
                             }
                         }
                     >   
-                        
-                        <div 
-                        style={{
-                            textAlign: 'center',
-                            justifyContent: 'space-between',
-                            marginRight: '16px',
-                        }}
-                        >
-                        <button 
-                        onClick={incrementCounter}
-                        style={{ border: '2px solid white', textAlign: 'center'}}
-                        >
-                        <FcLike
-                        style={{ border: '2px solid white', fontSize: '28px'}}
-                        />
-                        </button>
-                        <h5 style={{color: '#787878', fontSize: '16px', marginTop: '5px'}}> {like} likes</h5>
-                        </div>
-
-                        <div 
-                        style={{
-                            textAlign: 'center',
-                            justifyContent: 'space-between',
-                            marginRight: '16px',
-                        }}
-                        >
-                        <button 
-                        onClick={decrementCounter}
-                        style={{ border: '2px solid white', textAlign: 'center'}}
-                        >
-                        <AiOutlineDislike 
-                        style={{ border: '2px solid white', fontSize: '28px'}}
-                        />
-                        </button>
-                        <h5 style={{color: '#787878', fontSize: '16px', marginTop: '5px'}}> {dislike - 1} dislikes</h5>
-                        </div>
                         <button
                         onClick={() => setCommentModalShow(true)}
-                        // className="m-2" variant="info"
                         style={{
                             border: '2px solid #F8F8F8',
                             display: 'flex',
@@ -269,13 +188,10 @@ const ShowRecipe = (props) => {
                             color: '#696969',
                             backgroundColor: '#F8F8F8',
                             borderRadius: '19px',
-                            
-
                         }}
                         >   <FaRegComment style={{ border: '5px solid white',fontSize: '34px', marginLeft: '40px', marginTop: '-6px'}} />
                             add a comment
                         </button>
-                        
                         {
                             recipe.owner && user && recipe.owner._id === user._id 
                             ?
@@ -305,14 +221,6 @@ const ShowRecipe = (props) => {
                                             borderRadius: '5px',
                                             color: ' #cc0052',
                                             border: '2px solid 	#D0D0D0',
-                                            
-                                            
-
-
-
-
-
-
                                         }
                                     }
                                 >
